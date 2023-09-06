@@ -18,8 +18,14 @@ public class Problem {
     doubleXX("xxxx") --> 3
      */
     public static Integer doubleXX(String x) {
+        int count = 0;
 
-        return null;
+        for(int i = 1; i<x.length(); i++){
+            if(x.charAt(i-1) == "x".charAt(0) && x.charAt(i) == "x".charAt(0)){
+                count++;
+            }
+        }
+        return count;
     }
 
 
@@ -37,8 +43,14 @@ public class Problem {
     mysteryExplosion("ab") --> "aab"
      */
     public static String mysteryExplosion(String word) {
+        String result = "";
+        int count = word.length()-1;
 
-        return null;
+        for(int i = 0; i < word.length(); i++){
+            result += word.substring(0, word.length()-count);
+            count--;
+        }
+        return result;
     }
 
 
@@ -56,8 +68,13 @@ public class Problem {
     topTeams([1, 2, 3, 4, 5]) --> false
      */
     public static Boolean topTeams(int[] team) {
+        for(int i = 0; i<3; i++){
+            if(team[i] == 9){
+                return true;
+            }
+        }
 
-        return null;
+        return false;
     }
 
 
@@ -75,9 +92,21 @@ public class Problem {
     xtinction("xabxxxcdx") --> "xabcdx"
      */
     public static String xtinction(String x) {
+        String result = "";
 
+        for(int i = 0; i<x.length(); i++){
+            if(i == 0){
+                result += x.charAt(i);
+            }else if(i == x.length() -1){
+                result += x.charAt(i);
+            }else{
+                if(!(x.charAt(i)== "x".charAt(0))){
+                    result += x.charAt(i);
+                }
+            }
+        }
 
-        return null;
+        return result;
     }
 
 
@@ -96,7 +125,14 @@ public class Problem {
     agent667([6, 7, 2, 6]) --> 1
      */
     public static Integer agent667(int[] codes) {
+        int count = 0;
 
-        return null;
+        for(int i = 1; i<codes.length; i++){
+            if(codes[i-1] == 6 && (codes[i] == 6 || codes[i] == 7)){
+                count++;
+            }
+        }
+
+        return count;
     }
 }
